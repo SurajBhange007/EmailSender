@@ -1,0 +1,4 @@
+server.port=9999
+mail.host=smtp.gmail.com
+mail.user.username=testsurajlearning@gmail.com
+mail.user.password=whxcipxcwsmygpqc

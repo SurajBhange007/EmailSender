@@ -1,0 +1,61 @@
+package com.emailapi.service;
+
+import java.util.Properties;
+
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+@Service
+public class EmailService {
+
+	@Value("${mail.host}")
+	private String mailHost;
+	
+	@Value("${mail.user.username}")
+	private String username;
+	@Value("${mail.user.password}")
+	private String password;
+		
+	public void sendEmail(String subject, String message, String to) {
+		
+		//setting host data
+		Properties properties = System.getProperties();
+		properties.put("mail.smpt.port", mailHost);
+		properties.put("mail.smpt.port", "465");
+		properties.put("mail.smpt.ssl.enable", "true");
+		properties.put("mail.smpt.auth", "true");
+		
+		//get session object
+		Session session = Session.getInstance(properties, new Authenticator() {
+			@Override
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password);
+			}
+		});
+		session.setDebug(true);
+		
+		//compose the message 
+		MimeMessage m = new MimeMessage(session);
+		try {
+			
+			m.setFrom(username);
+			m.addRecipient(Message.RecipientType.TO, new InternetAddress(username));
+			m.setSubject(subject);
+			m.setText(message);
+			
+			//send mail
+			Transport.send(m);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

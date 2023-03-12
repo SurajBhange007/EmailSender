@@ -1,0 +1,3 @@
+server.port=9999
+mail.host=smpt.gmail.com
+mail.user.username=suraj.bhange.007@gmail.com

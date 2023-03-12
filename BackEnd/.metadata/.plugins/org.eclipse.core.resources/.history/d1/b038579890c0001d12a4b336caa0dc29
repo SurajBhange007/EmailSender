@@ -1,0 +1,5 @@
+package com.emailapi.model;
+
+public class EmailRequest {
+
+}

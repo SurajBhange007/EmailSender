@@ -1,0 +1,17 @@
+package com.emailapi.service;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+@Service
+public class EmailService {
+
+	@Value(${mail.host})
+private mailhost;
+		
+	public void sendEmail(String subject, String message, String to) {
+		
+		String host="smpt.gmail.com";
+		
+	}
+}

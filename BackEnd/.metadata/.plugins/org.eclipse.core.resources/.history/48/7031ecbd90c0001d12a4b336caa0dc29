@@ -1,0 +1,17 @@
+package com.emailapi.model;
+
+public class EmailRequest {
+	
+	public EmailRequest() {
+	}
+	public EmailRequest(String from, String subject, String message) {
+		super();
+		this.from = from;
+		this.subject = subject;
+		this.message = message;
+	}
+	private String from;
+	private String subject;
+	private String message;
+	
+}
