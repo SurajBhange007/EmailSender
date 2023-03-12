@@ -1,0 +1,28 @@
+.field{
+    width: 100%;
+}
+.card{
+    width: 60%;
+    margin: auto;
+    padding: 10px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+.card h1{
+    text-align: center;
+}
+
+.container{
+    margin-top: 10px;
+}
+.card button{
+    padding: 4px;
+    margin-right: 4px;
+    margin-left: 4px;
+}
+.btn{
+    text-align: center;
+}
+.resetbtn{
+    background-color: red;
+}
